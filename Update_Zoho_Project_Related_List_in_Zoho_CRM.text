@@ -1,0 +1,17 @@
+mp = Map();
+mp.put("name",name);
+contdet = Map();
+contdet.put("id",Record_Id);
+mp.put("accounts",contdet.tolist());
+datalist = List();
+datalist.add(mp);
+datamp = Map();
+datamp.put("data",datalist);
+resp = invokeurl
+[
+	url :"https://www.zohoapis.in/crm/v8/Accounts/" + Record_Id.toString() + "/Zoho_Projects/" + Related_Record_Id.toString()
+	type :POST
+	parameters:datamp.toString()
+	connection:"zoho_crm"
+];
+info resp;
